@@ -1,3 +1,5 @@
-$: << File.dirname(__FILE__)
-require 'hello' 
-run Hello.new
+require File.expand_path(File.dirname(__FILE__) + '/app/boot')
+
+map '/' do
+  run FlailWeb::Hello
+end
