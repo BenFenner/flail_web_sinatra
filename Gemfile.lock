@@ -4,6 +4,8 @@ GEM
     addressable (2.3.5)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    haml (4.0.4)
+      tilt
     multipart-post (1.2.0)
     octokit (2.6.0)
       sawyer (~> 0.5.1)
@@ -31,5 +33,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  haml
   sinatra
   sinatra_auth_github

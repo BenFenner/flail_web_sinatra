@@ -1,6 +1,8 @@
 #
 # load any dependencies
 #
+require 'haml'
+
 require 'sinatra/base'
 require 'sinatra/auth/github'
 
@@ -11,7 +13,7 @@ module FlailWeb
   class Hello < Sinatra::Base
 
     get '/' do 
-      'Hello World!'
+      haml :index
     end
 
   end
