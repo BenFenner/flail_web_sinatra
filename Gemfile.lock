@@ -10,6 +10,8 @@ GEM
     octokit (2.6.0)
       sawyer (~> 0.5.1)
     rack (1.5.2)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (1.5.1)
       rack
     sawyer (0.5.1)
@@ -34,5 +36,6 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  rack-flash3
   sinatra
   sinatra_auth_github

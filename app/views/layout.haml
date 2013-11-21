@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %title Flail
+    %link{:rel => 'stylesheet', :media => 'all', :href => '../assets/application.css'}
+    %script{:src => '../assets/application.js'}
+    -# = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a{:href => url('/'), :class => 'brand'} flail
+          %ul.nav.pull-right
+            %li{:class => params[:controller] == 'web_hooks' ? 'active' : ''}
+              %a{:href => url('/web_hooks')} web hooks
+          %ul.nav.pull-right
+            %li{:class => params[:controller] == 'filters' ? 'active' : ''}
+              %a{:href => url('/filters')} filters
+    .container
+      .row
+        .span12
+          - if flash[:alert]
+            .alert
+              = flash[:alert]
+          - if flash[:error]
+            .alert.alert-danger
+              = flash[:error]
+          - if flash[:notice]
+            .alert.alert-info
+              = flash[:notice]
+
+      = yield
+
+      %footer.footer
+        %blockquote
+          %p You're doing it wrong.
