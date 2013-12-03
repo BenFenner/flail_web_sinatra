@@ -1,0 +1,72 @@
+%header.jumbotron
+  %h1
+    %span.text-quiet Exception /
+    %span Digest Set
+    %small= resource.digest
+
+.row
+  .span12
+    .page-header
+      .pull-right
+        %p.label.label-info= resource.tag
+        %p.label= resource.environment
+      %h2
+        = resource.class_name
+        %small= resource.message
+.row
+  .span12
+    - unless resource.resolved?
+      .pull-right
+        -# = simple_form_for(resource, :url => '/flail/digests/#{fes.first.digest}') do |f|
+          %button{:type => 'submit', :class => 'btn btn-success'}== #{icon('icon-check')} Resolve
+        %a{:class => 'btn btn-warning btn-block', :href => 'filters/new/#{resource.digest}'}
+          %i{:class => 'icon-filter'} Filter
+
+    %dl.exception-info
+      %dt.text-quiet Occurred
+      %dd= resource.created_at.strftime('%Y-%d-%m %l:%M:%S %p')
+      %dt.text-quiet Where
+      %dd
+        %a{:href => resource.target_url} resource.target_url
+      %dt.text-quiet Server
+      %dd= resource.hostname
+    %hr
+.row
+  .span12
+    .tabbable
+      .pull-right.pull-relative
+        .pager.pager-with-tabs
+          %li{:class => (params[:offset].to_i == 0 ? 'disabled' : '')}
+            %a{:href => params.merge(:offset => params[:offset].to_i - 1)} 
+              %i{:class => 'icon-arrow-left'} Previous
+          %li.text-danger.text-large.well-exception== #{params[:offset].to_i + 1} / #{resource.occurrences.count}
+          %li{:class => (params[:offset].to_i == (resource.occurrences.count - 1) ? 'disabled' : '')}
+            %a{:href => params.merge(:offset => params[:offset].to_i + 1)} 
+              %i{:class => 'icon-arrow-right'} Next
+      %ul.nav.nav-tabs
+        %li.active
+          %a{:href => '#backtrace'} Backtrace
+        %li
+          %a{:href => '#params'} Parameters
+        %li
+          %a{:href => '#user'} User
+        %li
+          %a{:href => '#env'} Env
+      .tab-content
+        #backtrace.tab-pane.active
+          %table.table.table-striped.traces
+            - resource.backtrace.each do |trace|
+              %tr
+                %td.line= trace[:number]
+                %td
+                  .trace
+                    %span.file= trace[:file]
+                    %span.text-quiet
+                      %i{:class => 'icon-arrow-right'}
+                    %span.desc= trace[:method]
+        #params.tab-pane
+          %pre= resource.params.inspect
+        #user.tab-pane
+          %pre= resource.user.inspect
+        #env.tab-pane
+          %pre= resource.rack.inspect

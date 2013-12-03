@@ -11,4 +11,5 @@ end
 
 # add new route files here
 require_relative 'routes/flail_web'
+require_relative 'routes/digests'
 

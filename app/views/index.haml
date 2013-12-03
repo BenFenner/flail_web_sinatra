@@ -32,11 +32,11 @@
               %small occurrences
           %h4
             %span
-              %a{:href => "/digests/#{fes.first.digest}"}
+              %a{:href => "/flail/digests/#{fes.first.digest}"}
                 =fes.first.class_name
             %small== last occurence #{fes.first.created_at}
           %p.message= fes.first.message
           .clearfix
           .actions
-            -# simple_form_for(fes.first, :url => digest_url(fes.first.digest), :html => {:remote => true}) do |f|
+            -# simple_form_for(fes.first, :url => "/flail/digests/#{fes.first.digest}", :html => {:remote => true}) do |f|
               %button{:type => 'submit', :class => 'btn btn-success'}== #{icon('icon-check')} Resolve
