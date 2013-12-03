@@ -1,6 +1,42 @@
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-culpa qui officia deserunt mollit anim id est laborum.
+.subnav.subnav-fixed
+  %ul.nav.nav-pills
+    - FlailException.tags.map do |tag|
+      %a{:class => active?(tag), :href => tag} 
+        =tag
+
+%header.jumbotron
+  %h1
+    %span.text-quiet Exception /
+    %span Overview
+
+.row
+  .span12
+    .hide
+      -# = link_to('last 24 hours', 'javascript:;', 'data-d3-target' => '#exceptions-chart', 'data-d3-source' => flail_exceptions_url(params), 'data-d3-type' => 'bar-chart', 'data-d3-active' => true)
+    #exceptions-chart.d3-bar.d3-vertical
+    .clearfix
+
+.row
+  .span12
+    .page-header
+      %h2 Unresolved Exceptions
+    #exceptions-unresolved
+      - FlailException.digested(@collection).map do |fes|
+        .well.well-exception{:id => "digest_#{fes.first.digest}"}
+          .pull-right
+            %p.label.label-info= fes.first.tag
+            %p.label= fes.first.environment
+          .occurences.pull-left
+            %h2
+              .text-danger= fes.first.occurrences.count
+              %small occurrences
+          %h4
+            %span
+              %a{:href => "/digests/#{fes.first.digest}"}
+                =fes.first.class_name
+            %small== last occurence #{fes.first.created_at}
+          %p.message= fes.first.message
+          .clearfix
+          .actions
+            -# simple_form_for(fes.first, :url => digest_url(fes.first.digest), :html => {:remote => true}) do |f|
+              %button{:type => 'submit', :class => 'btn btn-success'}== #{icon('icon-check')} Resolve
