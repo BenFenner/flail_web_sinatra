@@ -2,8 +2,8 @@
 %html
   %head
     %title Flail
-    %link{:rel => 'stylesheet', :href => 'css/bootstrap.css' }
-    %link{:rel => 'stylesheet', :href => 'css/bootstrap-responsive.css'}
+    %link{:rel => 'stylesheet', :href => url('css/bootstrap.css') }
+    %link{:rel => 'stylesheet', :href => url('css/bootstrap-responsive.css') }
     -# = csrf_meta_tags
   %body
     .navbar.navbar-fixed-top
@@ -37,4 +37,4 @@
         %blockquote
           %p You're doing it wrong.
           
-    %script{:src => 'js/bootstrap.min.js'}
+    %script{:src => url('js/bootstrap.min.js') }
