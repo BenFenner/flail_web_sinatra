@@ -17,10 +17,15 @@
   .span12
     - unless resource.resolved?
       .pull-right
-        -# = simple_form_for(resource, :url => '/flail/digests/#{fes.first.digest}') do |f|
-          %button{:type => 'submit', :class => 'btn btn-success'}== #{icon('icon-check')} Resolve
-        %a{:class => 'btn btn-warning btn-block', :href => 'filters/new/#{resource.digest}'}
-          %i{:class => 'icon-filter'} Filter
+        %button{:type => 'submit', :class => 'btn btn-success'}
+          %i{:class => 'icon-check'}
+          Resolve
+        %p
+        %a{:class => 'btn btn-warning btn-block', :href => "filters/new?digest=#{resource.digest}"}
+          &nbsp;
+          %i{:class => 'icon-filter'}
+          Filter
+          &nbsp;&nbsp;
 
     %dl.exception-info
       %dt.text-quiet Occurred
@@ -37,12 +42,14 @@
       .pull-right.pull-relative
         .pager.pager-with-tabs
           %li{:class => (params[:offset].to_i == 0 ? 'disabled' : '')}
-            %a{:href => params.merge(:offset => params[:offset].to_i - 1)} 
-              %i{:class => 'icon-arrow-left'} Previous
+            %a{:href => "#{resource.digest}?offset=#{(params[:offset].to_i - 1)}"}
+              %i{:class => 'icon-arrow-left'}
+              Previous
           %li.text-danger.text-large.well-exception== #{params[:offset].to_i + 1} / #{resource.occurrences.count}
           %li{:class => (params[:offset].to_i == (resource.occurrences.count - 1) ? 'disabled' : '')}
-            %a{:href => params.merge(:offset => params[:offset].to_i + 1)} 
-              %i{:class => 'icon-arrow-right'} Next
+            %a{:href => "#{resource.digest}?offset=#{(params[:offset].to_i + 1)}"}
+              Next
+              %i{:class => 'icon-arrow-right'}
       %ul.nav.nav-tabs
         %li.active
           %a{:href => '#backtrace'} Backtrace
