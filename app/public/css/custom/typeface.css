@@ -1,0 +1,46 @@
+.text-right {
+  text-align: right;
+}
+
+// text size
+.text-small {
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.text-medium {
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.text-large {
+  font-size: 22px;
+  line-height: 33px;
+}
+
+a.text-quiet, .text-quiet {
+  color: #BCBCBC !important;
+}
+.text-info {
+  color: #049CDB;
+}
+
+.text-primary {
+  color: #0064CD;
+}
+
+.text-success {
+  color: #46A546;
+}
+
+.text-warning {
+  color: #F89406;
+}
+
+.text-danger {
+  color: #9D261D;
+}
+
+.text-inverse {
+  color: #333333;
+}
