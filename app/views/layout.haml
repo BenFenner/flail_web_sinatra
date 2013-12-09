@@ -2,23 +2,33 @@
 %html
   %head
     %title Flail
-    %link{:rel => 'stylesheet', :href => url('css/bootstrap.css') }
-    %link{:rel => 'stylesheet', :href => url('css/bootstrap-responsive.css') }
+    %link{:media => 'all', :rel => 'stylesheet', :type => 'text/css', :href => url('css/bootstrap.css') }
+    %link{:media => 'all', :rel => 'stylesheet', :type => 'text/css', :href => url('css/subnav.css') }
+    %link{:media => 'all', :rel => 'stylesheet', :type => 'text/css', :href => url('css/bootstrap-responsive.css') }
     -# = csrf_meta_tags
-  %body
+  %body{:class => "flail_exceptions"}
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a{:href => url('/'), :class => 'brand'} flail
+          %a{:class => 'brand', :href => url('/')} flail
           %ul.nav.pull-right
             %li{:class => params[:controller] == 'web_hooks' ? 'active' : ''}
               %a{:href => url('/web_hooks')} web hooks
           %ul.nav.pull-right
             %li{:class => params[:controller] == 'filters' ? 'active' : ''}
               %a{:href => url('/filters')} filters
+
+    %br
+    %br
     %br
     %br
     .container
+      .subnav.subnav-fixed
+        %ul.nav.nav-pills
+          - FlailException.tags.map do |tag|
+            %li{:class => active?(tag)}
+              %a{:href => url(tag)}
+                =tag
       .row
         .span12
           - if flash[:alert]
@@ -36,5 +46,5 @@
       %footer.footer
         %blockquote
           %p You're doing it wrong.
-          
+
     %script{:src => url('js/bootstrap.min.js') }

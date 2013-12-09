@@ -1,9 +1,3 @@
-.subnav.subnav-fixed
-  %ul.nav.nav-pills
-    - FlailException.tags.map do |tag|
-      %a{:class => active?(tag), :href => tag} 
-        =tag
-
 %header.jumbotron
   %h1
     %span.text-quiet Exception /
@@ -12,7 +6,8 @@
 .row
   .span12
     .hide
-      -# = link_to('last 24 hours', 'javascript:;', 'data-d3-target' => '#exceptions-chart', 'data-d3-source' => flail_exceptions_url(params), 'data-d3-type' => 'bar-chart', 'data-d3-active' => true)
+      %a{:href => 'javascript:;', 'data-d3-target' => '#exceptions-chart', 'data-d3-source' => params, 'data-d3-type' => 'bar-chart', 'data-d3-active' => true}
+        last 24 hours
     #exceptions-chart.d3-bar.d3-vertical
     .clearfix
 
@@ -38,5 +33,6 @@
           %p.message= fes.first.message
           .clearfix
           .actions
-            -# simple_form_for(fes.first, :url => "/flail/digests/#{fes.first.digest}", :html => {:remote => true}) do |f|
-              %button{:type => 'submit', :class => 'btn btn-success'}== #{icon('icon-check')} Resolve
+            %button{:type => 'submit', :class => 'btn btn-success'}
+              %i{:class => 'icon-check'}
+              Resolve
