@@ -32,7 +32,8 @@
       %dd= resource.created_at.strftime('%Y-%d-%m %l:%M:%S %p')
       %dt.text-quiet Where
       %dd
-        %a{:href => resource.target_url} resource.target_url
+        %a{:href => url(resource.target_url)}
+          =resource.target_url
       %dt.text-quiet Server
       %dd= resource.hostname
     %hr
