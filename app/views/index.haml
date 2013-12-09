@@ -6,7 +6,7 @@
 .row
   .span12
     .hide
-      %a{:href => 'javascript:;', 'data-d3-target' => '#exceptions-chart', 'data-d3-source' => params, 'data-d3-type' => 'bar-chart', 'data-d3-active' => true}
+      %a{:href => "javascript:;", 'data-d3-active' => "true", 'data-d3-source' => url('/flail_exceptions'), 'data-d3-target' => "#exceptions-chart", 'data-d3-type' => "bar-chart"}
         last 24 hours
     #exceptions-chart.d3-bar.d3-vertical
     .clearfix
@@ -30,9 +30,9 @@
               %a{:href => "/flail/digests/#{fes.first.digest}"}
                 =fes.first.class_name
             %small== last occurence #{fes.first.created_at}
-          %p.message= fes.first.message
+          %p.message= Rack::Utils.escape_html(fes.first.message)
           .clearfix
           .actions
             %button{:type => 'submit', :class => 'btn btn-success'}
-              %i{:class => 'icon-check'}
+              %i{:class => 'icon icon-check'}
               Resolve

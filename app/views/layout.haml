@@ -5,6 +5,7 @@
     %link{:media => 'all', :rel => 'stylesheet', :type => 'text/css', :href => url('css/bootstrap.css') }
     %link{:media => 'all', :rel => 'stylesheet', :type => 'text/css', :href => url('css/subnav.css') }
     %link{:media => 'all', :rel => 'stylesheet', :type => 'text/css', :href => url('css/bootstrap-responsive.css') }
+    %script{:type => 'text/javascript', :src => url('js/bootstrap.min.js') }
     -# = csrf_meta_tags
   %body{:class => "flail_exceptions"}
     .navbar.navbar-fixed-top
@@ -18,17 +19,18 @@
             %li{:class => params[:controller] == 'filters' ? 'active' : ''}
               %a{:href => url('/filters')} filters
 
+    .subnav.subnav-fixed
+      %ul.nav.nav-pills
+        - FlailException.tags.map do |tag|
+          %li{:class => active?(tag)}
+            %a{:href => url(tag)}
+              =tag
+
     %br
     %br
     %br
     %br
     .container
-      .subnav.subnav-fixed
-        %ul.nav.nav-pills
-          - FlailException.tags.map do |tag|
-            %li{:class => active?(tag)}
-              %a{:href => url(tag)}
-                =tag
       .row
         .span12
           - if flash[:alert]
@@ -47,4 +49,3 @@
         %blockquote
           %p You're doing it wrong.
 
-    %script{:src => url('js/bootstrap.min.js') }
