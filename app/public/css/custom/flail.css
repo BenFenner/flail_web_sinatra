@@ -1,0 +1,84 @@
+.navbar .brand {
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+body {
+  padding-top: 90px;
+
+  &.digests {
+    padding-top: 50px;
+  }
+}
+
+header {
+  margin-bottom: 18px;
+}
+
+.occurences {
+  width: 140px;
+
+  h2 {
+    text-align: center;
+  }
+
+  small {
+    display: block;
+  }
+}
+
+.well-exception {
+  padding: 8px;
+  position: relative;
+
+  .message {
+    min-height: 54px;
+  }
+
+  .actions {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+
+    form {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.exception-info {
+  margin-top: -8px;
+}
+
+.pull-relative {
+  position: relative;
+}
+
+.pager-with-tabs {
+  margin-bottom: 0px;
+  position: relative;
+  bottom: 8px;
+}
+
+.traces {
+  list-style: none;
+  margin-left: 0px;
+  padding-top: 9px;
+
+  td {
+    height: 26px;
+
+    &.line {
+      width: 30px;
+      border-right: 1px solid #ccc;
+    }
+
+    .trace {
+      height: 100%;
+
+      .desc {
+        font-weight: bold;
+      }
+    }
+  }
+}
