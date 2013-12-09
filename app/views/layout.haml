@@ -23,7 +23,7 @@
       %ul.nav.nav-pills
         - FlailException.tags.map do |tag|
           %li{:class => active?(tag)}
-            %a{:href => url(tag)}
+            %a{:href => "?tagged=#{tag}"}
               =tag
 
     %br
