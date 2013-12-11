@@ -3,6 +3,8 @@
 #
 require 'haml'
 
+require 'less'
+
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
