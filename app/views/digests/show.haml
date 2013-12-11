@@ -53,13 +53,13 @@
               %i{:class => 'icon-arrow-right'}
       %ul.nav.nav-tabs
         %li.active
-          %a{:href => '#backtrace'} Backtrace
+          %a{'data-toggle' => 'tab', :href => '#backtrace'} Backtrace
         %li
-          %a{:href => '#params'} Parameters
+          %a{'data-toggle' => 'tab', :href => '#params'} Parameters
         %li
-          %a{:href => '#user'} User
+          %a{'data-toggle' => 'tab', :href => '#user'} User
         %li
-          %a{:href => '#env'} Env
+          %a{'data-toggle' => 'tab', :href => '#env'} Env
       .tab-content
         #backtrace.tab-pane.active
           %table.table.table-striped.traces
