@@ -22,10 +22,8 @@
           Resolve
         %p
         %a{:class => 'btn btn-warning btn-block', :href => "filters/new?digest=#{resource.digest}"}
-          &nbsp;
           %i{:class => 'icon-filter'}
           Filter
-          &nbsp;&nbsp;
 
     %dl.exception-info
       %dt.text-quiet Occurred
@@ -73,8 +71,8 @@
                       %i{:class => 'icon-arrow-right'}
                     %span.desc= trace[:method]
         #params.tab-pane
-          %pre= resource.params.inspect
+          %pre= Rack::Utils.escape_html(resource.params.inspect)
         #user.tab-pane
-          %pre= resource.user.inspect
+          %pre= Rack::Utils.escape_html(resource.user.inspect)
         #env.tab-pane
-          %pre= resource.rack.inspect
+          %pre= Rack::Utils.escape_html(resource.rack.inspect)
