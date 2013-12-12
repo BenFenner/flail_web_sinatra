@@ -803,8 +803,8 @@ h4 small {
 }
 
 .page-header {
-  padding-bottom: 9px;
-  margin: 20px 0 30px;
+  padding-bottom: 17px;
+  margin: 18px 0px;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -5630,14 +5630,14 @@ a.thumbnail:focus {
 
 .label,
 .badge {
-  padding: 2px 4px;
-  font-size: 11.844px;
+  padding: 1px 4px 2px;
+  font-size: 10.998px;
   font-weight: bold;
-  line-height: 14px;
+  line-height: 13px;
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
-  vertical-align: baseline;
+  vertical-align: middle;
   background-color: #999999;
 }
 
