@@ -3,7 +3,6 @@
   %head
     %title Flail
     %link{:media => 'all', :rel => 'stylesheet', :type => 'text/css', :href => url('application.stylesheet') }
-    %script{:type => 'text/javascript', :src => url('js/bootstrap.min.js') }
     -# = csrf_meta_tags
   %body{:class => "flail_exceptions"}
     .navbar.navbar-fixed-top
@@ -42,4 +41,5 @@
       %footer.footer
         %blockquote
           %p You're doing it wrong.
-
+    %script{:type => 'text/javascript', :src => url('js/jquery-2.0.3.js') }
+    %script{:type => 'text/javascript', :src => url('js/bootstrap.min.js') }
