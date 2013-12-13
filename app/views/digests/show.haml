@@ -40,15 +40,27 @@
     .tabbable
       .pull-right.pull-relative
         .pager.pager-with-tabs
-          %li{:class => (params[:offset].to_i == 0 ? 'disabled' : '')}
-            %a{:href => "#{resource.digest}?offset=#{(params[:offset].to_i - 1)}"}
-              %i{:class => 'icon-arrow-left'}
-              Previous
+          - if params[:offset].to_i <= 0
+            %li.disabled
+              %a
+                %i{:class => 'icon-arrow-left'}
+                Previous
+          - else
+            %li
+              %a{:href => "#{resource.digest}?offset=#{(params[:offset].to_i - 1)}"}
+                %i{:class => 'icon-arrow-left'}
+                Previous
           %li.text-danger.text-large.well-exception== #{params[:offset].to_i + 1} / #{resource.occurrences.count}
-          %li{:class => (params[:offset].to_i == (resource.occurrences.count - 1) ? 'disabled' : '')}
-            %a{:href => "#{resource.digest}?offset=#{(params[:offset].to_i + 1)}"}
-              Next
-              %i{:class => 'icon-arrow-right'}
+          - if params[:offset].to_i >= (resource.occurrences.count - 1)
+            %li.disabled
+              %a
+                Next
+                %i{:class => 'icon-arrow-right'}
+          - else
+            %li
+              %a{:href => "#{resource.digest}?offset=#{(params[:offset].to_i + 1)}"}
+                Next
+                %i{:class => 'icon-arrow-right'}
       %ul.nav.nav-tabs
         %li.active
           %a{'data-toggle' => 'tab', :href => '#backtrace'} Backtrace
