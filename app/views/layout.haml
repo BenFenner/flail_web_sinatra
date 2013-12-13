@@ -34,6 +34,7 @@
               = flash[:error]
           - if flash[:notice]
             .alert.alert-info
+              %a{:href => '#', :class => 'close', :"data-dismiss" => 'alert'} &times;
               = flash[:notice]
 
       = yield
