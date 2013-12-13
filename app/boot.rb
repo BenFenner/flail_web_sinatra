@@ -16,7 +16,10 @@ require 'rack-flash'
 # load internal dependencies
 #
 require_relative 'models/flail_exception'
+require_relative 'models/request_parameters'
+require_relative 'models/filter'
 require_relative 'helpers/application_helper'
+
 
 
 #

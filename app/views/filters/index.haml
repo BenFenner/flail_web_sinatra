@@ -1,0 +1,34 @@
+%header.jumbotron
+  %h1
+    .pull-right
+      %a{:class => 'btn btn-success', :href => url('filters/new')} New Filter
+    %span.text-quiet Exception /
+    %span Filters
+
+.row
+  .span12
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Filtered Parameters
+          %th.span2 Exceptions Filtered
+          %th.span4 Actions
+      %tbody
+        - if Filter.count == 0
+          %tr
+            %td{colspan: 3}
+              No filters registered.
+        - for filter in @collection do
+          %tr
+            %td= filter
+            %td= filter.exceptions_caught
+            %td.filter-actions
+              %a{:class => 'btn btn-info', :href => url("filters/#{filter.id}")}
+                %i{:class => 'icon-list-alt'}
+                View
+              %a{:class => 'btn btn-warning', :href => url("filters/#{filter.id}/edit")}
+                %i{:class => 'icon-edit'}
+                Edit
+              %button{:type => 'submit', :class => 'btn btn-danger'}
+                %i{:class => 'icon-remove'}
+                Remove

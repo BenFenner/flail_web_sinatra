@@ -1,0 +1,51 @@
+%header.jumbotron
+  %h1
+    %span.text-quiet Exception /
+    %span Filter
+
+.row
+  .span12
+    .page-header
+      .pull-right
+        %p.label.label-info= @filter.print_tag
+        %p.label= @filter.print_environment
+      %h2
+        = @filter.print_class_name
+        %small= @filter.print_message
+
+.row
+  .span12
+    .pull-right.button-list
+      %a{:class => 'btn btn-warning', :href => url("filters/#{@filter.id}/edit")}
+        %i{:class => 'icon-edit'}
+        Edit
+      %br
+      %br
+      %form
+        %button{:type => 'submit', :class => 'btn btn-danger'}
+          %i{:class => 'icon-remove'}
+          Remove
+    %dl.exception-info.clearfix
+      - @filter.other_parameters.each do |param_name, param_value|
+        %dt.text-quiet= param_name
+        %dd= param_value
+      %dt.text-quiet= "No other parameters set." if @filter.other_parameters.empty?
+
+.row
+  .span12
+    %h3 Filtered Exceptions
+    %hr
+    - for filtered_exception in @filtered_exceptions do
+      .well.well-exception{:id => "digest_#{filtered_exception.first.digest}"}
+        .pull-right
+          %p.label.label-info= filtered_exception.first.tag
+          %p.label= filtered_exception.first.environment
+        .occurences.pull-left
+          %h2
+            .text-danger= filtered_exception.first.occurrences.count
+            %small occurrences
+        %h4
+          %span
+            %a{:href => url(filtered_exception.first.digest)} filtered_exception.first.class_name
+          %small== last occurence #{filtered_exception.first.created_at}
+        %p.message= filtered_exception.first.message
