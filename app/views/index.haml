@@ -33,6 +33,7 @@
           %p.message= Rack::Utils.escape_html(fes.first.message)
           .clearfix
           .actions
-            %button{:type => 'submit', :class => 'btn btn-success'}
-              %i{:class => 'icon icon-check'}
-              Resolve
+            %form{:action => url("digests/#{fes.first.digest}"), :class => 'simple_form edit_flail_exception', :"data-remote" => 'true', :id => "edit_flail_exception_#{fes.first.id}", :method => 'post', :novalidate => 'novalidate'}
+              %button{:type => 'submit', :class => 'btn btn-success'}
+                %i{:class => 'icon icon-check'}
+                Resolve
