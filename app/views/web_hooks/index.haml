@@ -22,7 +22,7 @@
             %tr
               %td{:colspan => 3}
                 No web hooks registered.
-          - WebHook.where(:event => event).all.map do |hook|
+          - WebHook.where(:event => event).load.map do |hook|
             %tr
               %td
                 - if hook.secure
