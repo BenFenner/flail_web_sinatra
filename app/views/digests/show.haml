@@ -17,7 +17,7 @@
   .span12
     - unless resource.resolved?
       .pull-right
-        %form{:action => url("digests/#{resource.digest}"), :class => 'simple_form edit_flail_exception', :id => "edit_flail_exception_#{resource.id}", :method => 'post', :novalidate => 'novalidate'}
+        %form{:action => url("digests/#{resource.digest}"), :class => 'simple_form edit_flail_exception', :"data-remote" => 'true', :id => "edit_flail_exception_#{resource.id}", :method => 'post', :novalidate => 'novalidate'}
           %button{:type => 'submit', :class => 'btn btn-success'}
             %i{:class => 'icon-check'}
             Resolve
