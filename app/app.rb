@@ -20,4 +20,5 @@ end
 require_relative 'routes/flail_web'
 require_relative 'routes/digests'
 require_relative 'routes/filters'
+require_relative 'routes/web_hooks'
 

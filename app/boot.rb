@@ -18,6 +18,7 @@ require 'rack-flash'
 require_relative 'models/flail_exception'
 require_relative 'models/request_parameters'
 require_relative 'models/filter'
+require_relative 'models/web_hook'
 require_relative 'helpers/application_helper'
 
 
