@@ -31,6 +31,6 @@
                   %i.icon.icon-remove
               %td= hook.url
               %td
-                %form{:action => url("web_hooks/#{hook.id}")}
-                  %button{:type => 'submit', :class => 'btn btn-danger', :method => :delete}
-                    Remove
+                = form(url("web_hooks/#{hook.id}"), :delete)
+                = submit('Remove', {:class => 'btn btn-danger'})
+                = '</form>'

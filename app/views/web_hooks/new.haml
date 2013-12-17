@@ -1,0 +1,20 @@
+%header.jumbotron
+  %h1
+    %span.text-quiet Exception /
+    %span Web Hooks
+
+
+.row
+  .span12
+    = form('/flail/web_hooks', :create)
+    = label(:web_hook, :secure, 'Secure?') 
+    = checkbox(:web_hook, :secure, ['true'], {:label => false})
+    %p
+    = label(:web_hook, :url, '* Url')
+    = input(:web_hook, :url)
+    %p
+    = label(:web_hook, :event, '* Event')
+    = select(:web_hook, :event, WebHook::EVENT_TYPES)
+    .form-actions
+      = submit('Create Web hook')
+    = '</form>'
