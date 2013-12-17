@@ -9,6 +9,7 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/auth/github'
+require 'sinatra/form_helpers'
 
 require 'rack-flash'
 

@@ -4,6 +4,7 @@ module FlailWeb
     # set up anything our routes need later
     enable :sessions
     use Rack::Flash
+    helpers Sinatra::FormHelpers
     
     # Less @import statements only work for css file extensions without this
     Less.paths << File.join(settings.views, 'less')

@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/BenFenner/sinatra-formhelpers-ng.git
+  revision: 4a969c13f05a0f058439c61df7f524a4258a48fc
+  specs:
+    sinatra-formhelpers-ng (1.10.0)
+      bacon
+      rack-test
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -19,6 +27,7 @@ GEM
     addressable (2.3.5)
     arel (4.0.1)
     atomic (1.1.14)
+    bacon (1.2.0)
     builder (3.1.4)
     commonjs (0.2.7)
     faraday (0.8.8)
@@ -40,6 +49,8 @@ GEM
       rack
     rack-protection (1.5.1)
       rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
     ref (1.0.5)
     sawyer (0.5.1)
       addressable (~> 2.3.5)
@@ -78,5 +89,6 @@ DEPENDENCIES
   rack-flash3
   sinatra
   sinatra-activerecord
+  sinatra-formhelpers-ng!
   sinatra_auth_github
   therubyracer

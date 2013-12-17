@@ -13,5 +13,6 @@ gem 'rack-flash3'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra_auth_github'
+gem 'sinatra-formhelpers-ng', :git => 'git://github.com/BenFenner/sinatra-formhelpers-ng.git'
 
 gem 'therubyracer'
