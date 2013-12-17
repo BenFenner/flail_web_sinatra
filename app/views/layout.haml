@@ -10,10 +10,10 @@
         .container
           %a{:class => 'brand', :href => url('/')} flail
           %ul.nav.pull-right
-            %li{:class => params[:controller] == 'web_hooks' ? 'active' : ''}
+            %li{:class => @nav_location == 'web_hooks' ? 'active' : ''}
               %a{:href => url('/web_hooks')} web hooks
           %ul.nav.pull-right
-            %li{:class => params[:controller] == 'filters' ? 'active' : ''}
+            %li{:class => @nav_location == 'filters' ? 'active' : ''}
               %a{:href => url('/filters')} filters
 
     .subnav.subnav-fixed

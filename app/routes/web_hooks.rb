@@ -1,6 +1,14 @@
 module FlailWeb
   class App < Sinatra::Base
   
+    before '/web_hooks' do
+      @nav_location = 'web_hooks'
+    end
+    
+    before '/web_hooks/*' do
+      @nav_location = 'web_hooks'
+    end
+  
     get '/web_hooks' do
       haml 'web_hooks/index'.to_sym
     end

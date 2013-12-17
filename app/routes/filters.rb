@@ -1,6 +1,14 @@
 module FlailWeb
   class App < Sinatra::Base
-  
+
+    before '/filters' do
+      @nav_location = 'filters'
+    end
+    
+    before '/filters/*' do
+      @nav_location = 'filters'
+    end
+
     get '/filters' do
       @collection = Filter.all
       haml 'filters/index'.to_sym
