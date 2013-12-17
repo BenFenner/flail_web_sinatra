@@ -4421,10 +4421,15 @@ input[type="submit"].btn.btn-mini {
   color: #999999;
 }
 
-.navbar .brand:hover,
 .navbar .brand:focus {
   text-decoration: none;
-  outline: thin dotted #eeeeee;
+  outline: thin dotted #777777;
+  outline-offset: -2px;
+}
+
+.navbar .brand:hover {
+  text-decoration: none;
+  outline: none;
 }
 
 .navbar-text {
@@ -4620,12 +4625,19 @@ input[type="submit"].btn.btn-mini {
   margin-top: 8px;
 }
 
-.navbar .nav > li > a:focus,
+.navbar .nav > li > a:focus {
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  outline: thin dotted #777777;
+  outline-offset: -2px;
+}
+
 .navbar .nav > li > a:hover {
   background-color: transparent;
   color: rgb(255, 255, 255);
   text-decoration: none;
-  outline: thin dotted #eeeeee;
+  outline: none;
 }
 
 .navbar .nav > .active > a,
