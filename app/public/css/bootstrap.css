@@ -3958,7 +3958,6 @@ input[type="submit"].btn.btn-mini {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
 }
 
 .nav > li > a > img {
@@ -4425,6 +4424,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .brand:hover,
 .navbar .brand:focus {
   text-decoration: none;
+  outline: thin dotted #eeeeee;
 }
 
 .navbar-text {
@@ -4622,10 +4622,10 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  outline-width: thin;
-  outline-style: dotted;
-  outline-color: #333333;
-  outline-offset: -2px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  outline: thin dotted #eeeeee;
 }
 
 .navbar .nav > .active > a,
