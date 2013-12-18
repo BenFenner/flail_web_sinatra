@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/BenFenner/sinatra-formhelpers-ng.git
-  revision: 4a969c13f05a0f058439c61df7f524a4258a48fc
+  revision: 24ca92c830d7f1ba3a5f4d0eda088bb472691482
   specs:
-    sinatra-formhelpers-ng (1.10.0)
+    sinatra-formhelpers-ng (1.11.0)
       bacon
       rack-test
 
