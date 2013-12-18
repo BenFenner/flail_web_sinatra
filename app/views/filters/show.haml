@@ -20,11 +20,9 @@
         %i{:class => 'icon-edit'}
         Edit
       %br
-      %br
-      %form
-        %button{:type => 'submit', :class => 'btn btn-danger'}
-          %i{:class => 'icon-remove'}
-          Remove
+      = form(url("filters/#{@filter.id}"), :delete)
+      = submit('Remove', 'icon-remove', {:class => 'btn btn-danger'})
+      = '</form>'
     %dl.exception-info.clearfix
       - @filter.other_parameters.each do |param_name, param_value|
         %dt.text-quiet= param_name

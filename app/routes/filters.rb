@@ -19,6 +19,12 @@ module FlailWeb
       @filtered_exceptions = FlailException.digested(@filter.filtered_exceptions)
       haml 'filters/show'.to_sym
     end
+    
+    post '/filters/:id' do
+      Filter.find(params[:id]).destroy!
+      flash[:notice] = "Filter was successfully destroyed."
+      redirect to('/filters')
+    end
 
   end
 end
