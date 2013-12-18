@@ -24,7 +24,7 @@ module FlailWeb
       haml 'web_hooks/new'.to_sym
     end
     
-    post '/web_hooks/:id' do
+    delete '/web_hooks/:id' do
       WebHook.find(params[:id]).destroy!
       flash[:notice] = "Web hook was successfully destroyed."
       redirect to('/web_hooks')

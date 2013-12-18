@@ -1,0 +1,34 @@
+%header.jumbotron
+  %h1
+    %span.text-quiet Exception /
+    %span Filters
+
+.row
+  .span12
+    = form(url("filters/#{@filter.id}"), :update, {:class => 'simple_form form-vertical', :id => "edit_filter_#{@filter.id}", :novalidate => 'novalidate'})
+    %fieldset
+      %legend Limiting Parameters (at least one required)
+      = label(:filter, :class_name, 'Class name')
+      = input(:filter, :class_name, {:value => @filter.class_name})
+      = label(:filter, :message, 'Message')
+      = textarea(:filter, :message, Rack::Utils.escape_html(@filter.message), {:class => 'span6', :rows => '3'})
+      = label(:filter, :user_agent, 'User agent')
+      = input(:filter, :user_agent, {:value => @filter.user_agent, :class => 'span6'})
+      = label(:filter, :request_params, 'Request parameters to match (in JSON)')
+      = input(:filter, :request_params, {:value => @filter.request_params})
+    %fieldset
+      %legend General Parameters
+      = label(:filter, :tag, 'Tag')
+      = input(:filter, :tag, {:value => @filter.tag})
+      = label(:filter, :environment, 'Environment')
+      = input(:filter, :environment, {:value => @filter.environment})
+      = label(:filter, :target_url, 'Target url')
+      = input(:filter, :target_url, {:value => @filter.target_url, :class => 'span6'})
+      = label(:filter, :hostname, 'Hostname')
+      = input(:filter, :hostname, {:value => @filter.hostname})
+    .form-actions
+      = submit('Update Filter', {:class => 'btn btn-info'})
+      %a{:class => 'btn btn-danger', :href => url('filters')}
+        %i{:class => 'icon-ban-circle'}
+        Cancel
+    = '</form>'

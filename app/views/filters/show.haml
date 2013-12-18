@@ -21,7 +21,7 @@
         Edit
       %br
       = form(url("filters/#{@filter.id}"), :delete)
-      = submit('Remove', 'icon-remove', {:class => 'btn btn-danger'})
+      = submit_with_pre_icon('Remove', 'icon-remove', {:class => 'btn btn-danger'})
       = '</form>'
     %dl.exception-info.clearfix
       - @filter.other_parameters.each do |param_name, param_value|

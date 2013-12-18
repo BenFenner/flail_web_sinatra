@@ -4,6 +4,7 @@ module FlailWeb
     # set up anything our routes need later
     enable :sessions
     use Rack::Flash
+    use Rack::MethodOverride
     helpers Sinatra::FormHelpers
     
     # Less @import statements only work for css file extensions without this
