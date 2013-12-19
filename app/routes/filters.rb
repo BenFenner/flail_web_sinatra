@@ -22,6 +22,10 @@ module FlailWeb
     end
 
     get '/filters/new' do
+      if params[:digest]
+        fe = FlailException.find_by_digest(params[:digest])
+        @filter = Filter.new_from_exception(fe)
+      end
       haml 'filters/new'.to_sym
     end
     
