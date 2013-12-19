@@ -28,7 +28,7 @@
       = input(:filter, :hostname, {:value => @filter.hostname})
     .form-actions
       = submit('Update Filter', {:class => 'btn btn-info'})
-      %a{:class => 'btn btn-danger', :href => url('filters')}
+      %a{:class => 'btn btn-danger', :href => back}
         %i{:class => 'icon-ban-circle'}
         Cancel
     = '</form>'
