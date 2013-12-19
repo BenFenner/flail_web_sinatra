@@ -13,6 +13,17 @@ module FlailWeb
       @collection = Filter.all
       haml 'filters/index'.to_sym
     end
+ 
+    post '/filters' do
+      filter = Filter.new(params[:filter])
+      filter.save!
+      flash[:notice] = "Filter was successfully created."
+      redirect to('/filters')
+    end
+
+    get '/filters/new' do
+      haml 'filters/new'.to_sym
+    end
     
     get '/filters/:id' do
       @filter = Filter.find(params[:id])

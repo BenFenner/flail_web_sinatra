@@ -5,10 +5,10 @@
 
 .row
   .span12
-    = form(url("filters/#{@filter.id}"), :update, {:class => 'simple_form form-vertical', :id => "edit_filter_#{@filter.id}", :novalidate => 'novalidate'})
+    = form(url("filters"), :create, {:class => 'simple_form form-vertical', :id => "new_filter", :novalidate => 'novalidate'})
     = haml 'filters/form'.to_sym
     .form-actions
-      = submit('Update Filter', {:class => 'btn btn-info'})
+      = submit('Create Filter', {:class => 'btn btn-info'})
       %a{:class => 'btn btn-danger', :href => back}
         %i{:class => 'icon-ban-circle'}
         Cancel
