@@ -8,6 +8,12 @@ module FlailWeb
       haml :index
     end
     
+    post '/' do
+      fe = FlailException.swing!(params)
+      filtered = fe.check_against_filters!(Filter.all)
+      WebHook.trigger(:exception, fe, url("digests/#{fe.digest}")) unless filtered
+    end
+    
   end
 end
 
