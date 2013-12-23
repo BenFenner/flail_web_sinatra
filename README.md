@@ -4,7 +4,8 @@ Web interface for http://github.com/asceth/flail using Rails 3 and Sinatra.
 
 
 ###### Interface
-Inspired from the few screenshots I saw of Github's internal haystack tool on various presentations from their employees.
+Inspired from the few screenshots asceth (John Long) saw of Github's internal haystack tool on various presentations from their employees.
+https://github.com/asceth
 
 For these screenshots, [voyager, enterprise, github and flail] are all unique tagged applications.
 
