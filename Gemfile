@@ -18,3 +18,5 @@ gem 'sinatra_auth_github'
 gem 'sinatra-formhelpers-ng', :git => 'git://github.com/BenFenner/sinatra-formhelpers-ng.git'
 
 gem 'therubyracer'
+
+gem 'tux', "~> 0.3.0"
