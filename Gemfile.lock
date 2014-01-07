@@ -97,15 +97,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
-  haml
+  activerecord (~> 4.0.1)
+  haml (~> 4.0.4)
   json (~> 1.8.1)
-  less
-  pg
-  rack-flash3
-  sinatra
-  sinatra-activerecord
+  less (~> 2.4.0)
+  pg (~> 0.17.0)
+  rack-flash3 (~> 1.0.5)
+  sinatra (~> 1.4.4)
+  sinatra-activerecord (~> 1.2.3)
   sinatra-formhelpers-ng!
-  sinatra_auth_github
-  therubyracer
+  sinatra_auth_github (~> 1.0.0)
+  therubyracer (~> 0.12.0)
   tux (~> 0.3.0)
