@@ -4,6 +4,7 @@ class FlailException < ActiveRecord::Base
   serialize :user
   serialize :params
   serialize :backtrace
+  serialize :rack
 
   has_many :occurrences, :class_name => 'FlailException', :foreign_key => 'digest', :primary_key => 'digest'
   belongs_to :filter, :foreign_key => 'filtered_by', :counter_cache => true
@@ -65,6 +66,8 @@ class FlailException < ActiveRecord::Base
     end
 
     def swing!(params)
+      params = HashWithIndifferentAccess.new(params)
+
       fe = FlailException.new
 
       fe.target_url = params[:target_url]
@@ -75,10 +78,15 @@ class FlailException < ActiveRecord::Base
       fe.tag = params[:tag]
       fe.class_name = params[:class_name]
       fe.message = params[:message]
-      fe.params = params[:parameters] || {}
-      fe.user = params[:user] || {}
+
+      fe.params = HashWithIndifferentAccess.new(params[:parameters]) || {}
+      fe.user = HashWithIndifferentAccess.new(params[:user]) || {}
+      fe.rack = HashWithIndifferentAccess.new(params[:rack]) || {}
+
+      params[:trace].each do |entry|
+        entry = HashWithIndifferentAccess.new(entry)
+      end
       fe.backtrace = params[:trace] || []
-      fe.rack = params[:rack] || {}
 
       fe.save!
       fe

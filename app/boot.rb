@@ -3,6 +3,8 @@
 #
 require 'haml'
 
+require 'json'
+
 require 'less'
 
 require 'sinatra'
