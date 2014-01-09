@@ -66,6 +66,8 @@ class FlailException < ActiveRecord::Base
     end
 
     def swing!(params)
+      # Sinatra doesn't automatically create or serialize hashes with indifferent access.
+      # It must be done manually if symbols are to be used for access.
       params = HashWithIndifferentAccess.new(params)
 
       fe = FlailException.new
