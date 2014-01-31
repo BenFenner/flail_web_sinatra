@@ -83,8 +83,8 @@
                       %i{:class => 'icon-arrow-right'}
                     %span.desc= trace[:method]
         #params.tab-pane
-          %pre= Rack::Utils.escape_html(resource.params.inspect)
+          %pre= human_formatted_hash(resource.params)
         #user.tab-pane
-          %pre= Rack::Utils.escape_html(resource.user.inspect)
+          %pre= human_formatted_hash(resource.user)
         #env.tab-pane
-          %pre= Rack::Utils.escape_html(resource.rack.inspect)
+          %pre= human_formatted_hash(resource.rack)
