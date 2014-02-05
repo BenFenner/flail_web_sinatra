@@ -2,10 +2,12 @@ module FlailWeb
   class App < Sinatra::Base
 
     before '/filters' do
+      authenticate!
       @nav_location = 'filters'
     end
     
     before '/filters/*' do
+      authenticate!
       @nav_location = 'filters'
     end
 

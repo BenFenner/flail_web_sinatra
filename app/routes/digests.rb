@@ -2,12 +2,14 @@ module FlailWeb
   class App < Sinatra::Base
   
     get '/digests/:digest_id?:offset?' do
+      authenticate!
       params[:offset] ||= 0
       resource
       haml 'digests/show'.to_sym
     end
     
     post '/digests/:digest_id?:offset?' do
+      authenticate!
       resource.resolve!
       WebHook.trigger(:resolution, resource, url("digests/#{resource.digest}"))
       flash[:notice] = "Resolved #{resource.occurrences.count} flailing exceptions: #{resource.class_name}"

@@ -2,10 +2,12 @@ module FlailWeb
   class App < Sinatra::Base
   
     before '/web_hooks' do
+      authenticate!
       @nav_location = 'web_hooks'
     end
     
     before '/web_hooks/*' do
+      authenticate!
       @nav_location = 'web_hooks'
     end
   
