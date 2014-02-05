@@ -28,9 +28,11 @@
         .span12
           - if flash[:alert]
             .alert
+              %a{:href => '#', :class => 'close', :"data-dismiss" => 'alert'} &times;
               = flash[:alert]
           - if flash[:error]
             .alert.alert-danger
+              %a{:href => '#', :class => 'close', :"data-dismiss" => 'alert'} &times;
               = flash[:error]
           - if flash[:notice]
             .alert.alert-info
