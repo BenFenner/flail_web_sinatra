@@ -25,24 +25,11 @@ require_relative 'helpers/application_helper'
 
 
 # Setup database connection.
-db = URI.parse('postgres://bfenner:test@localhost/flail_web_development')
-ActiveRecord::Base.establish_connection(
-  :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-  :host     => db.host,
-  :username => db.user,
-  :password => db.password,
-  :database => db.path[1..-1],
-  :encoding => 'utf8'
-)
+require_relative 'database_config'
 
 
 # Setup Github/Octokit environment variables.
-ENV['OCTOKIT_API_ENDPOINT'] = 'https://example.com/api/v3'
-ENV['OCTOKIT_WEB_ENDPOINT'] = 'https://example.com/'
-ENV['GITHUB_OAUTH_DOMAIN'] = 'https://example.com'
-ENV['GITHUB_CLIENT_ID'] = 'example'
-ENV['GITHUB_CLIENT_SECRET'] = 'example'
-ENV['GITHUB_CLIENT_CALLBACK'] = 'http://example.com/flail'
+require_relative 'github_auth_config'
 
 
 # Configure Octokit for Github OAuth.
