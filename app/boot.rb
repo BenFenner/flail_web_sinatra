@@ -1,3 +1,6 @@
+# Maybe needed for unicorn.
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
+
 # Load external dependencies.
 require 'haml'
 
