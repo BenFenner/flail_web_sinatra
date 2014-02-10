@@ -25,11 +25,11 @@ require_relative 'helpers/application_helper'
 
 
 # Setup database connection.
-require_relative 'database_config'
+require_relative '../config/database_config'
 
 
 # Setup Github/Octokit environment variables.
-require_relative 'github_auth_config'
+require_relative '../config/github_auth_config'
 
 
 # Configure Octokit for Github OAuth.
