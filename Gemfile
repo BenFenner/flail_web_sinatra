@@ -21,3 +21,5 @@ gem 'sinatra-formhelpers-ng', :git => 'git://github.com/BenFenner/sinatra-formhe
 gem 'therubyracer', "~> 0.12.0"
 
 gem 'tux', "~> 0.3.0"
+
+gem 'unicorn', '~> 4.6.2'
