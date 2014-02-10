@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'activerecord', "~> 4.0.1"
+gem 'activesupport', "~> 4.0.1"
 
 gem 'haml', "~> 4.0.4"
 
