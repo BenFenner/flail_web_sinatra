@@ -8,7 +8,7 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a{:class => 'brand', :href => ROOT_URL} flail
+          %a{:class => 'brand', :href => ::ROOT_URL} flail
           %ul.nav.pull-right
             %li{:class => @nav_location == 'web_hooks' ? 'active' : ''}
               %a{:href => url('/web_hooks')} web hooks

@@ -1,9 +1,6 @@
 module FlailWeb
   class App < Sinatra::Base
 
-    #Set up constants
-    ROOT_URL = url('/')
-
     # Set up anything our routes need later.
     enable :sessions
     use Rack::Flash
