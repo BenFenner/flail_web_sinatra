@@ -43,10 +43,6 @@ Octokit.configure do |c|
 end
 
 
-#Set up constants
-ROOT_URL = url('/')
-
-
 # Load app.
 require_relative 'initializers/ssl_ca_path'
 require_relative 'app'
