@@ -1,6 +1,7 @@
 # Maybe needed for unicorn.
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 
+
 # Load external dependencies.
 require 'haml'
 
@@ -40,6 +41,10 @@ Octokit.configure do |c|
   c.api_endpoint = ENV['OCTOKIT_API_ENDPOINT']
   c.web_endpoint = ENV['OCTOKIT_WEB_ENDPOINT']
 end
+
+
+#Set up constants
+ROOT_URL = url('/')
 
 
 # Load app.
