@@ -6,7 +6,7 @@
 
 .row
   .span12
-    = form('/flail/web_hooks', :create)
+    = form('#{ROOT_URL}web_hooks', :create)
     = label(:web_hook, :secure, 'Secure?') 
     = checkbox(:web_hook, :secure, ['true'], {:label => false})
     %p
