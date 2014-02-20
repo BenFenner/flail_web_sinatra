@@ -30,6 +30,9 @@ require_relative 'helpers/application_helper'
 
 # Setup database connection.
 require_relative '../config/database_config'
+unless database_connected?
+  establish_database_connection
+end
 
 
 # Setup Github/Octokit environment variables.
@@ -41,10 +44,6 @@ Octokit.configure do |c|
   c.api_endpoint = ENV['OCTOKIT_API_ENDPOINT']
   c.web_endpoint = ENV['OCTOKIT_WEB_ENDPOINT']
 end
-
-
-#Set up constants
-ROOT_URL = url('/')
 
 
 # Load app.
