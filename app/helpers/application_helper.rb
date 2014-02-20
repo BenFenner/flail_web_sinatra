@@ -19,3 +19,9 @@ def human_formatted_hash(input = {})
   end
   output
 end
+
+def database_connected?
+  ActiveRecord::Base.connection.active?
+rescue ActiveRecord::ConnectionNotEstablished
+  false
+end
