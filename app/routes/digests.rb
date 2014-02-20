@@ -1,13 +1,13 @@
 module FlailWeb
   class App < Sinatra::Base
-  
+
     get '/digests/:digest_id?:offset?' do
       authenticate!
       params[:offset] ||= 0
       resource
       haml 'digests/show'.to_sym
     end
-    
+
     post '/digests/:digest_id?:offset?' do
       authenticate!
       resource.resolve!
@@ -15,7 +15,7 @@ module FlailWeb
       flash[:notice] = "Resolved #{resource.occurrences.count} flailing exceptions: #{resource.class_name}"
       redirect to('/')
     end
-    
+
     def resource
       @resource ||= FlailException.with_digest(params[:digest_id]).order('created_at desc').offset(params[:offset].to_i).first
     end
