@@ -27,7 +27,7 @@
               %small occurrences
           %h4
             %span
-              %a{:href => "#{::ROOT_URL}digests/#{fes.first.digest}"}
+              %a{:href => "#{url('/')}digests/#{fes.first.digest}"}
                 =fes.first.class_name
             %small== last occurence #{fes.first.created_at}
           %p.message= Rack::Utils.escape_html(fes.first.message)
