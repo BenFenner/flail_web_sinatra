@@ -3,7 +3,7 @@ module FlailWeb
 
     get '/' do
       authenticate!
-      @collection = FlailException.within(24.hours.ago).unresolved
+      @collection = FlailException.unresolved
       @collection = @collection.tagged(params[:tagged]) unless params[:tagged].blank?
       haml :index
     end
