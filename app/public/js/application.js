@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('form.resolve-exception button').on('click', function (event) {
-    button = $(this);
-    form = button.parents('form');
+    var button = $(this);
+    var form = button.parents('form');
 
     $.ajax({
       type: "POST",
