@@ -28,12 +28,12 @@
           %h4
             %span
               %a{:href => "#{url('/')}digests/#{fes.first.digest}"}
-                =fes.first.class_name
+                = fes.first.class_name
             %small== last occurence #{fes.first.created_at}
-          %p.message= Rack::Utils.escape_html(fes.first.message)
+          %p.message= Rack::Utils.escape_html(fes.first.message.to_s[0..160])
           .clearfix
           .actions
-            %form{:action => url("digests/#{fes.first.digest}"), :class => 'simple_form edit_flail_exception', :"data-remote" => 'true', :id => "edit_flail_exception_#{fes.first.id}", :method => 'post', :novalidate => 'novalidate'}
+            %form{:action => url("digests/#{fes.first.digest}"), :class => 'simple_form resolve-exception', :id => "edit_flail_exception_#{fes.first.id}", :method => 'post', :novalidate => 'novalidate', 'data-target' => "#digest_#{fes.first.digest}"}
               %button{:type => 'submit', :class => 'btn btn-success'}
                 %i{:class => 'icon icon-check'}
                 Resolve
