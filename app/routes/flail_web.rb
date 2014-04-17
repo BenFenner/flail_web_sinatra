@@ -2,7 +2,7 @@ module FlailWeb
   class App < Sinatra::Base
 
     get '/' do
-      authenticate!
+      authenticate_shim!
       @collection = FlailException.unresolved
       @collection = @collection.tagged(params[:tagged]) unless params[:tagged].blank?
       haml :index

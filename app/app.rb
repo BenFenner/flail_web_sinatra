@@ -27,6 +27,15 @@ module FlailWeb
     get '/application.stylesheet' do
       less '/less/application'.to_sym
     end
+    
+    # If we are in development mode just return true, yo.
+    def authenticate_shim!
+      if ENV['RACK_ENV'] == 'development'
+        true
+      else
+        authenticate!
+      end
+    end
 
   end 
 end
