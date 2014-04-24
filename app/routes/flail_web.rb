@@ -36,7 +36,7 @@ module FlailWeb
 
       # Gather the number of exeptions from the last 24 hours in one-hour chunks to be used in the bar chart.
       (0..23).to_a.reverse.map do |index|
-        time = Time.now - index.hours
+        time = Time.now.change(min: 0) - index.hours
         exceptions = FlailException.within(time - 1.hour, time)
         exceptions = exceptions.tagged(params[:tagged]) unless params[:tagged].blank?
         num_exceptions = exceptions.size
