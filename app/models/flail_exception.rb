@@ -12,7 +12,7 @@ class FlailException < ActiveRecord::Base
   scope :tagged, lambda {|tag| where(:tag => tag)}
   scope :unresolved, -> { where(:resolved_at => nil) }
   scope :with_digest, lambda {|digest| where(:digest => digest)}
-  scope :within, lambda {|time| where("created_at >= ?", time)}
+  scope :within, lambda {|begin_time, end_time| where("created_at >= ? AND created_at < ?", begin_time, end_time)}
 
   before_create :set_digest
 

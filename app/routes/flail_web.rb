@@ -28,6 +28,27 @@ module FlailWeb
       redirect to('/')
     end
 
+    get '/chart_data.json' do
+      authenticate_shim!
+      content_type :json
+
+      data = []
+
+      # Gather the number of exeptions from the last 24 hours in one-hour chunks to be used in the bar chart.
+      (0..23).to_a.reverse.map do |index|
+        time = Time.now - index.hours
+        exceptions = FlailException.within(time - 1.hour, time)
+        exceptions = exceptions.tagged(params[:tagged]) unless params[:tagged].blank?
+        num_exceptions = exceptions.size
+        hour_text = time.strftime("%l%p")
+        if hour_text == "12AM" then hour_text = "\u263D" end # First quarter moon character
+        if hour_text == "12PM" then hour_text = "\u263C" end # White sun with rays character
+        data << { hour: hour_text, exceptions: num_exceptions }
+      end
+
+      data.to_json
+    end
+
   end
 end
 
