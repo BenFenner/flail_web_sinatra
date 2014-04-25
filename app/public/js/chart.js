@@ -1,5 +1,6 @@
 $.getJSON(location.protocol + '//' + location.host + location.pathname + "chart_data.json" + window.location.search, function(data) {
 
+  var maxNumExceptions = 100;
   var barWidth = 37;
   var barColor = "#F89406";
   var barHeight = 200;
@@ -41,7 +42,11 @@ $.getJSON(location.protocol + '//' + location.host + location.pathname + "chart_
     attr("dx", -barWidth/2).
     attr("dy", "1.2em").
     attr("text-anchor", "middle").
-    text(function(datum) { return datum.exceptions;}).
+    text(function(datum) {
+      if (datum.exceptions < maxNumExceptions) {
+        return datum.exceptions;
+      }
+      return (maxNumExceptions - 1) + "+" ;}).
     attr("fill", "grey");
 
   barDemo.selectAll("text.yAxis").
