@@ -36,9 +36,13 @@ module FlailWeb
 
       # Gather the number of exeptions from the last 24 hours in one-hour chunks to be used in the bar chart.
       (0..23).to_a.reverse.map do |index|
-        time = Time.now - index.hours
-        exceptions = FlailException.within(time - 1.hour, time)
-        exceptions = exceptions.tagged(params[:tagged]) unless params[:tagged].blank?
+        time = Time.now.change(min: 0) - index.hours
+        exceptions = nil
+        if params[:tagged].blank?
+          exceptions = FlailException.select("created_at").within(time, time + 1.hour).take(100)
+        else
+          exceptions = FlailException.select("created_at").within(time, time + 1.hour).tagged(params[:tagged]).take(100)
+        end
         num_exceptions = exceptions.size
         hour_text = time.strftime("%l%p")
         if hour_text == "12AM" then hour_text = "\u263D" end # First quarter moon character
