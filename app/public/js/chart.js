@@ -41,13 +41,13 @@ $.getJSON(location.protocol + '//' + location.host + location.pathname + "chart_
       return yPos; }).
     attr("dx", -barWidth/2).
     attr("dy", "1.2em").
-    attr("text-anchor", "middle").
+    attr("text-anchor", "right").
     text(function(datum) {
       if (datum.exceptions < maxNumExceptions) {
         return datum.exceptions;
       }
       return (maxNumExceptions - 1) + "+" ;}).
-    attr("fill", "grey");
+    attr("fill", "white");
 
   barDemo.selectAll("text.yAxis").
     data(data).
