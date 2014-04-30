@@ -63,13 +63,13 @@ $.getJSON(location.protocol + '//' + location.host + location.pathname + "chart_
     enter().append("svg:text").
     attr("x", function(datum, index) {
       if (datum.hour.length > 3) {
-        return x(index) + barWidth - 17;
+        return x(index) + barWidth - 18;
       } else if (datum.hour.length > 2) {
-        return x(index) + barWidth - 8;
+        return x(index) + barWidth - 14;
       } else if (datum.hour.length > 1) {
-        return x(index) + barWidth - 7;
+        return x(index) + barWidth - 10;
       }
-      return x(index) + barWidth - 5;
+      return x(index) + barWidth - 6;
     }).
     attr("y", barHeight).
     attr("dx", -barWidth/2).

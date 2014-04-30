@@ -47,6 +47,7 @@ module FlailWeb
         hour_text = time.strftime("%l%p")
         if hour_text == "12AM" then hour_text = "\u263D" end # First quarter moon character
         if hour_text == "12PM" then hour_text = "\u263C" end # White sun with rays character
+        hour_text.strip!
         data << { hour: hour_text, exceptions: num_exceptions }
       end
 
