@@ -63,9 +63,9 @@ $.getJSON(location.protocol + '//' + location.host + location.pathname + "chart_
     enter().append("svg:text").
     attr("x", function(datum, index) {
       if (datum.hour.length > 3) {
-        return x(index) + barWidth - 16;
+        return x(index) + barWidth - 17;
       } else if (datum.hour.length > 2) {
-        return x(index) + barWidth - 10;
+        return x(index) + barWidth - 8;
       } else if (datum.hour.length > 1) {
         return x(index) + barWidth - 7;
       }
