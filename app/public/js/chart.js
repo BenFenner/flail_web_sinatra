@@ -1,4 +1,9 @@
-$.getJSON(location.protocol + '//' + location.host + location.pathname + "chart_data.json" + window.location.search, function(data) {
+var base_url = location.protocol + '//' + location.host + location.pathname;
+if (!base_url.endsWith("/")) {
+  base_url += "/";
+}
+
+$.getJSON(base_url + "chart_data.json" + window.location.search, function(data) {
 
   var maxNumExceptions = 100;
   var barWidth = 37;
