@@ -39,9 +39,9 @@ module FlailWeb
         time = Time.now.change(min: 0) - index.hours
         exceptions = nil
         if params[:tagged].blank?
-          exceptions = FlailException.select("created_at").within(time, time + 1.hour).take(100)
+          exceptions = FlailException.select("created_at").within(time, time + 1.hour).unfiltered.take(100)
         else
-          exceptions = FlailException.select("created_at").within(time, time + 1.hour).tagged(params[:tagged]).take(100)
+          exceptions = FlailException.select("created_at").within(time, time + 1.hour).tagged(params[:tagged]).unfiltered.take(100)
         end
         num_exceptions = exceptions.size
         hour_text = time.strftime("%l%p")

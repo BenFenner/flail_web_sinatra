@@ -9,6 +9,7 @@ class FlailException < ActiveRecord::Base
   has_many :occurrences, :class_name => 'FlailException', :foreign_key => 'digest', :primary_key => 'digest'
   belongs_to :filter, :foreign_key => 'filtered_by', :counter_cache => true
 
+  scope :unfiltered, -> { where("filtered_by IS NOT NULL") }
   scope :tagged, lambda {|tag| where(:tag => tag)}
   scope :unresolved, -> { where(:resolved_at => nil) }
   scope :with_digest, lambda {|digest| where(:digest => digest)}
