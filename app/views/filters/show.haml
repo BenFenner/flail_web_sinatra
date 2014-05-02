@@ -46,5 +46,5 @@
           %span
             %a{:href => url(filtered_exception.first.digest)}
               =filtered_exception.first.class_name
-          %small== last occurence #{filtered_exception.first.created_at}
+          %small== last occurence #{distance_of_time_in_words filtered_exception.first.created_at}
         %p.message= filtered_exception.first.message

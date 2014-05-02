@@ -25,7 +25,7 @@
             %span
               %a{:href => "#{url('/')}digests/#{fes.first.digest}"}
                 = fes.first.class_name
-            %small== last occurence #{fes.first.created_at}
+            %small== last occurence #{distance_of_time_in_words fes.first.created_at}
           %p.message= Rack::Utils.escape_html(fes.first.message.to_s[0..160])
           .clearfix
           .actions
