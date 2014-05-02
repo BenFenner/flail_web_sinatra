@@ -27,7 +27,7 @@
 
     %dl.exception-info
       %dt.text-quiet Occurred
-      %dd= resource.created_at.strftime('%Y-%d-%m %l:%M:%S %p')
+      %dd= resource.created_at.in_time_zone("Eastern Time (US & Canada)").strftime('%Y-%d-%m %l:%M:%S %p %Z')
       %dt.text-quiet Where
       %dd
         %a{:href => url(resource.target_url)}
