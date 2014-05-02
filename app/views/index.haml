@@ -25,7 +25,9 @@
             %span
               %a{:href => "#{url('/')}digests/#{fes.first.digest}"}
                 = fes.first.class_name
-            %small== last occurence #{distance_of_time_in_words fes.first.created_at}
+            -time_created = fes.first.created_at.in_time_zone("Eastern Time (US & Canada)")
+            %time{:title => time_created.strftime('%Y-%d-%m %l:%M:%S %p %Z'), :datetime => time_created.strftime('%Y-%d-%mT%l:%M:%SZ')}
+              %small== last occurence #{distance_of_time_in_words fes.first.created_at}
           %p.message= Rack::Utils.escape_html(fes.first.message.to_s[0..160])
           .clearfix
           .actions
