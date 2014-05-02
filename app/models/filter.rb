@@ -16,10 +16,14 @@ class Filter < ActiveRecord::Base
   validate :has_at_least_one_limiting_parameter
 
   def request_params=(value)
-    @request_params = RequestParameters(value)
-    self.params_including = request_params.to_json
+    if value.blank?
+      self.params_including = nil
+    else
+      @request_params = RequestParameters(value)
+      self.params_including = request_params.to_json
 
-    @request_params
+      @request_params
+    end
   end
 
   def request_params
