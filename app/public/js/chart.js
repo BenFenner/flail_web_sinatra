@@ -1,5 +1,6 @@
 var base_url = location.protocol + '//' + location.host + location.pathname;
-if (!base_url.endsWith("/")) {
+var last_char = base_url.charAt(base_url.length - 1)
+if (last_char != '/') {
   base_url += "/";
 }
 
