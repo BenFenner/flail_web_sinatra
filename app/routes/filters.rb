@@ -12,7 +12,7 @@ module FlailWeb
     end
 
     get '/filters' do
-      @collection = Filter.all
+      @collection = Filter.order(tag: :desc).order(:environment).order(:created_at)
       haml 'filters/index'.to_sym
     end
 

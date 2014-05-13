@@ -10,9 +10,10 @@
     %table.table.table-striped.table-bordered
       %thead
         %tr
-          %th Filtered Parameters
-          %th.span2 Exceptions Filtered
-          %th.span4 Actions
+          %th{:width => '190px'} Summary
+          %th Message
+          %th{:width => '50px'} Filtered
+          %th{:width => '230px'} Actions
       %tbody
         - if Filter.count == 0
           %tr
@@ -20,7 +21,15 @@
               No filters registered.
         - for filter in @collection do
           %tr
-            %td= filter
+            %td.filter-summary
+              =filter.print_class_name
+              .pull-left
+                %p.label.label-info
+                  =filter.print_tag
+              .pull-right
+                %p.label
+                  =filter.print_environment
+            %td= filter.print_message
             %td= filter.exceptions_caught
             %td.filter-actions
               %a{:class => 'btn btn-info', :href => url("filters/#{filter.id}")}
