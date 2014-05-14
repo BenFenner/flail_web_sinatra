@@ -11,7 +11,7 @@
       %thead
         %tr
           %th{:width => '190px'} Summary
-          %th Message
+          %th Message and Other Parameters
           %th{:width => '50px'} Filtered
           %th{:width => '230px'} Actions
       %tbody
@@ -22,14 +22,19 @@
         - for filter in @collection do
           %tr
             %td.filter-summary
-              =filter.print_class_name
+              = filter.print_class_name
               .pull-left
                 %p.label.label-info
-                  =filter.print_tag
+                  = filter.print_tag
               .pull-right
                 %p.label
-                  =filter.print_environment
-            %td= filter.print_message
+                  = filter.print_environment
+            %td
+              = filter.print_message
+              - filter.other_parameters.each do |param_name, param_value|
+                %dt.text-quiet
+                  = "#{param_name}: "
+                  = param_value
             %td= filter.exceptions_caught
             %td.filter-actions
               %a{:class => 'btn btn-info', :href => url("filters/#{filter.id}")}
