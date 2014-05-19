@@ -13,7 +13,13 @@ module FlailWeb
       resource.resolve!
       WebHook.trigger(:resolution, resource, url("digests/#{resource.digest}"))
       flash[:notice] = "Resolved #{resource.occurrences.count} flailing exceptions: #{resource.class_name}"
-      redirect to('/')
+
+      if request.xhr?
+        content_type :json
+        {:success => 1, :digest => resource.digest}.to_json
+      else
+        redirect to('/')
+      end
     end
 
     def resource
@@ -22,4 +28,3 @@ module FlailWeb
 
   end
 end
-
