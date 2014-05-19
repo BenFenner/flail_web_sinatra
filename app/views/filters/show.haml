@@ -44,7 +44,7 @@
             %small occurrences
         %h4
           %span
-            %a{:href => url(filtered_exception.first.digest)}
+            %a{:href => "#{url('/')}digests/#{filtered_exception.first.digest}"}
               =filtered_exception.first.class_name
           -time_created = filtered_exception.first.created_at.in_time_zone("Eastern Time (US & Canada)")
           %time{:title => time_created.strftime('%Y-%d-%m %l:%M:%S %p %Z'), :datetime => time_created.strftime('%Y-%d-%mT%l:%M:%SZ')}
