@@ -23,7 +23,7 @@
 
     .subnav.subnav-fixed
       %ul.nav.nav-pills
-        - FlailException.tags.map do |tag|
+        - FlailException.tags.sort.map do |tag|
           %li{:class => active?(tag)}
             %a{:href => url("/?tagged=#{tag}")}
               =tag
