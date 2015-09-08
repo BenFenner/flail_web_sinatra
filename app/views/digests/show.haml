@@ -12,7 +12,7 @@
         %p.label= resource.environment
       %h2
         = resource.class_name
-        %small= resource.message
+        %small= html_escape(resource.message)
 .row
   .span12
     - unless resource.resolved?
