@@ -103,21 +103,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 4.1)
-  activesupport (~> 4.1)
+  activerecord (~> 4.2)
+  activesupport (~> 4.2)
   foreman (~> 0.66.0)
   haml (~> 4.0.5)
   json (~> 1.8)
   less (~> 2.4.0)
-  pg (~> 0.17)
+  pg (~> 0.18)
   rack-flash3 (~> 1.0.5)
   sinatra (~> 1.4.6)
   sinatra-activerecord (~> 2.0)
   sinatra-formhelpers-ng!
-  sinatra_auth_github (~> 1.0)
+  sinatra_auth_github (~> 1.2)
   therubyracer (~> 0.12)
   tux (~> 0.3.0)
-  unicorn (~> 4.8)
+  unicorn (~> 4.9)
 
 BUNDLED WITH
    1.10.6
